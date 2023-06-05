@@ -160,6 +160,6 @@ class Rossmann (object):
     
     def get_prediction(self, model, original_data, test_data):
         pred=model.predict(test_data)
-        original_data['prediction'] = pred
+        original_data['prediction'] = np.expm1(pred)
         return original_data.to_json(orient='records', date_format='iso')
     
